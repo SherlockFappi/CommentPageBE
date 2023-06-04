@@ -12,6 +12,7 @@ class CommentView(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['=id', 'user', 'title', 'company']
     ordering_fields = ['id', 'user', 'title', 'company', 'upvotes']
+    ordering = ['-date']
     
     @action(methods=['get'], detail=False)
     def newest(self, request):
